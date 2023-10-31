@@ -2,9 +2,13 @@ const net = require('net');
 const router = express.Router();
 const express = require('express');
 const readline = require('readline-sync');
-const servidor ={
-    port:3000
-}
+
+const servidor = {
+    host: process.env.SERVER_HOST, // Utiliza una variable de entorno para el host
+    port: process.env.SERVER_PORT, // Utiliza una variable de entorno para el puerto
+};
+
+
 
 const client = net.createConnection(servidor);
 
