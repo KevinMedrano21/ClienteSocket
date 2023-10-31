@@ -7,7 +7,7 @@ const IndexRoutes = require('./routers/index.js');
 const { default: mongoose } = require('mongoose');
 
 
-app.set('port', process.env.SERVER_URL || '127.0.0.1:3000'); // asignacion de puerto
+app.set('port', process.env.SERVER_URL); // asignacion de puerto
 app.set('view engine', 'ejs');
 
 //MiddleWare utiliza morgan
