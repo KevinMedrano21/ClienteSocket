@@ -3,8 +3,7 @@ const router = express.Router();
 const express = require('express');
 const readline = require('readline-sync');
 const servidor ={
-    port:3000,
-    host:'localhost'
+    port:3000
 }
 
 const client = net.createConnection(servidor);
