@@ -4,7 +4,7 @@ const express = require('express');
 const readline = require('readline-sync');
 
 const servidor = {
-    host: process.env.SERVER_HOST || 'serversocket-y5i0.onrender.com', // Utiliza una variable de entorno para el host
+    host: process.env.SERVER_HOST, // Utiliza una variable de entorno para el host
     port: process.env.SERVER_PORT // Utiliza una variable de entorno para el puerto
 };
 
