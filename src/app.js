@@ -7,7 +7,7 @@ const IndexRoutes = require('./routers/index.js');
 const { default: mongoose } = require('mongoose');
 
 
-app.set('port', process.env.SERVER_URL); // asignacion de puerto
+app.set('port', process.env.PORT || 3000); // asignacion de puerto
 app.set('view engine', 'ejs');
 
 //MiddleWare utiliza morgan
@@ -37,9 +37,9 @@ app.listen(app.get('port'), () => {
 });
 
 
-mongoose.connect("mongodb+srv://node:Node2002@cluster0.3gbtj9u.mongodb.net/ProyectoChat?retryWrites=true&w=majority")
-.then(db=>console.log('BD conectada'))
-.catch(err=>console.log('autenticacion fallida'));
+// mongoose.connect("mongodb+srv://node:Node2002@cluster0.3gbtj9u.mongodb.net/ProyectoChat?retryWrites=true&w=majority")
+// .then(db=>console.log('BD conectada'))
+// .catch(err=>console.log('autenticacion fallida'));
 
 
 

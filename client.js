@@ -9,17 +9,21 @@ const readline = require('readline-sync');
 // };
 
 function connectToServer(){
-    const client = net.createConnection({host: process.env.SERVER_HOST, port: process.env.SERVER_PORT});
+    const client = new net.Socket();
 }
 
 
+client.connect(process.env.SERVER_PORT, process.env.SERVER_HOST, () => {
+    console.log('Conexión satisfactoria');
+    sendLine(client);
+});
 
 // const client = net.createConnection(servidor);
 
-client.on('connect', ()=>{
-    console.log('conexion satisfactoria')
-    sendLine(cliente)
-})
+// client.on('connect', ()=>{
+//     console.log('conexion satisfactoria')
+//     sendLine(cliente)
+// })
 
 client.on('error', (err) => {
     console.error(err.message);
