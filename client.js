@@ -8,14 +8,24 @@ const servidor = {
     port: process.env.SERVER_PORT // Utiliza una variable de entorno para el puerto
 };
 
+function connectToServer(){
+    const client = net.createConnection({host: SERVER_HOST, port: SERVER_PORT});
+}
 
 
-const client = net.createConnection(servidor);
+
+// const client = net.createConnection(servidor);
 
 client.on('connect', ()=>{
     console.log('conexion satisfactoria')
-    sendLine()
+    sendLine(cliente)
 })
+
+client.on('error', (err) => {
+    console.error(err.message);
+    // Si hay un error, intenta la reconexión después de un tiempo
+    setTimeout(connectToServer, 1000);
+});
 
 client.on('data', (data)=>{
     console.log('El servidor dice' +data)
@@ -35,4 +45,6 @@ function sendLine(){
         client.write(line)
     }
 }
+
+connectToServer();
 
