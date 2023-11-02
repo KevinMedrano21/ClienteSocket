@@ -3,13 +3,13 @@ const router = express.Router();
 const express = require('express');
 const readline = require('readline-sync');
 
-const servidor = {
-    host: process.env.SERVER_HOST, // Utiliza una variable de entorno para el host
-    port: process.env.SERVER_PORT // Utiliza una variable de entorno para el puerto
-};
+// const servidor = {
+//     host: process.env.SERVER_HOST, // Utiliza una variable de entorno para el host
+//     port: process.env.SERVER_PORT // Utiliza una variable de entorno para el puerto
+// };
 
 function connectToServer(){
-    const client = net.createConnection({host: SERVER_HOST, port: SERVER_PORT});
+    const client = net.createConnection({host: process.env.SERVER_HOST, port: process.env.SERVER_PORT});
 }
 
 
