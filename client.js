@@ -5,7 +5,7 @@ const readline = require('readline-sync');
 
 const servidor = {
     port:10000,
-    host: 'localhost'
+    host: '100.20.92.101'
 };
 
 const client = net.createConnection(servidor);
