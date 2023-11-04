@@ -4,7 +4,7 @@ const router = express.Router();
 const readline = require('readline-sync');
 
 const servidor = {
-    port:3000,
+    port:10000,
     host: 'localhost'
 };
 
