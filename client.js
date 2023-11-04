@@ -1,6 +1,6 @@
 const net = require('net');
-const router = express.Router();
 const express = require('express');
+const router = express.Router();
 const readline = require('readline-sync');
 
 const servidor = {
