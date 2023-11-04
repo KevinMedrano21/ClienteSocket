@@ -3,28 +3,26 @@ const router = express.Router();
 const express = require('express');
 const readline = require('readline-sync');
 
-// const servidor = {
-//     host: process.env.SERVER_HOST, // Utiliza una variable de entorno para el host
-//     port: process.env.SERVER_PORT // Utiliza una variable de entorno para el puerto
-// };
+const servidor = {
+    port:3000,
+    host: 'localhost'
+};
 
-function connectToServer() {
-    const client = new net.Socket();
+const client = net.createConnection(servidor);
 
-    client.connect(process.env.SERVER_PORT, process.env.SERVER_HOST, () => {
+    client.on('connect', () => {
         console.log('Conexión satisfactoria');
-        sendLine(client);
+        sendLine();
+    });
+
+
+    client.on('data', (data) => {
+        console.log('El servidor dice ' + data);
+        sendLine();
     });
 
     client.on('error', (err) => {
         console.error(err.message);
-        // Si hay un error, intenta la reconexión después de un tiempo
-        setTimeout(connectToServer, 1000);
-    });
-
-    client.on('data', (data) => {
-        console.log('El servidor dice ' + data);
-        sendLine(client);
     });
 
     function sendLine(client) {
@@ -35,6 +33,3 @@ function connectToServer() {
             client.write(line);
         }
     }
-}
-
-connectToServer();
